@@ -1,4 +1,8 @@
 FROM rocker/verse
-MAINTAINER Zhuofu Wang <zhuofu@ad.unc.edu>
+MAINTAINER Zhuofu Wang <wwang2015@gmail.comOB>
 RUN R -e "install.packages('xlsx')"
 RUN R -e "install.packages('gbm')"
+RUN R -e "install.packages('caret')" 
+USER rstudio
+WORKDIR /home/rstudio
+CMD /bin/bash
