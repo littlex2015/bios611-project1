@@ -30,9 +30,10 @@ Information provided by Kaggle on variables in the data set are given below:
 | NumberRealEstateLoansOrLines         | Number of mortgage and real estate loans including home equity lines of credit                                                                           | integer    |
 | NumberOfTime60-89DaysPastDueNotWorse | Number of times borrower has been 60-89 days past due but no worse in the last 2 years.                                                                  | integer    |
 | NumberOfDependents                   | Number of dependents in family excluding themselves (spouse, children etc.)                                                                              | integer    |
+#### Preliminary Figures
+![](images/monthlyincme vs age with SeriousDlqin2yrs.png) 
 
 #### Usage
-***
 You'll need Docker and the ability to run Docker as your current user.
 
 You'll need to build the container:
