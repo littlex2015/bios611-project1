@@ -31,7 +31,9 @@ Information provided by Kaggle on variables in the data set are given below:
 | NumberOfTime60-89DaysPastDueNotWorse | Number of times borrower has been 60-89 days past due but no worse in the last 2 years.                                                                  | integer    |
 | NumberOfDependents                   | Number of dependents in family excluding themselves (spouse, children etc.)                                                                              | integer    |
 #### Preliminary Figures
-![](images/monthlyincome vs age with SeriousDlqin2yrs.png) 
+[](images/monthlyincome vs age with SeriousDlqin2yrs.png) 
+
+<img src="images/monthlyincome vs age with SeriousDlqin2yrs.png">
 
 #### Usage
 You'll need Docker and the ability to run Docker as your current user.
