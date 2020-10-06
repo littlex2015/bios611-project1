@@ -1,37 +1,45 @@
 ## Project 1 Bios 611
 ***
-### Loan Applicants Dataset
+### Trending YouTube Video Statistics
 ***
 ### Proposal 
 ***
 #### Introduction 
-Banks play a crucial role in market economies. They decide who can get finance and on what terms and can make or break investment decisions. For markets and society to function, individuals and companies need access to credit. 
+YouTube (the world-famous video sharing website) maintains a list of the top trending videos on the platform. According to Variety magazine, “To determine the year’s top-trending videos, YouTube uses a combination of factors including measuring users interactions (number of views, shares, comments and likes). Note that they’re not the most-viewed videos overall for the calendar year”. Top performers on the YouTube trending list are music videos (such as the famously virile “Gangam Style”), celebrity and/or reality TV performances, and the random dude-with-a-camera viral videos that YouTube is well-known for.
 
-Firstly, I need to figure out which variables is the most important variable that can determine if a customer is good or bad. Can we see biases related to Person experienced 90 days past due delinquency or worse in datasets? Is the age variable impact the credibility of the applicants? What characteristics do a bad/good applicant have?
+In this project, I will do some Exploratory Data Analysis on the dataset. This analysis will focus on answering the following questions:  
+1) Is there correlation between the number of views and the number of likes?
+2) What are the top trending Channels in all countries? 
+3) What are the most frequent type of video? 
+4) Which country has the most viewed videos in the trending field?
+5) Whats the most frequent names in title, description, tags?
 
-Credit scoring algorithms, which make a guess at the probability of default, are the method banks use to determine whether or not a loan should be granted. My final task is to improve on the state of the art in credit scoring, by predicting the probability that somebody will experience financial distress in the next two years.The final deliverable is a model that borrowers can use to help make the best financial decisions.
+Factors like the name of a video, the type of a video are significant elements of  a trending video. The answers from the quesitons above can help a youtuber to make the next trending video by finding the most popular types and names of the video. 
+
+Further regression analysis could be done on the dataset, such as predicting the number of likes of each trending videos depends on several factor like comment disabled, number of views etc.
 
 
 #### Datasets 
-The datasets we undertake to analyze are publicly available on Kaggle and cover loan applicants financial information and other personal information. They can be downloaded.This repo will eventually contain an analysis of the loan applicants financial information Dataset.
+The datasets we undertake to analyze are publicly available on Kaggle and cover Trending YouTube Video Statistics. They can be downloaded.This repo will eventually contain an analysis of the Trending YouTube Video Statistics.This dataset is a daily record of the top trending YouTube videos.
 
-Information provided by Kaggle on variables in the data set are given below:
+This dataset includes several months (and counting) of data on daily trending YouTube videos. Data is included for the US, GB, DE, CA, and FR regions (USA, Great Britain, Germany, Canada, and France, respectively), with up to 200 listed trending videos per day. Data from RU, MX, KR, JP and IN regions (Russia, Mexico, South Korea, Japan and India respectively) are also included over the same time period.
 
-| Variable Name                        | Description                                                                                                                                              | Type       |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| SeriousDlqin2yrs                     | Person experienced 90 days past due delinquency or worse                                                                                                 | Y/N        |
-| RevolvingUtilizationOfUnsecuredLines | Total balance on credit cards and personal lines of credit except real estate and no installment debt like car loans divided by the sum of credit limits | percentage |
-| age                                  | Age of borrower in years                                                                                                                                 | integer    |
-| NumberOfTime30-59DaysPastDueNotWorse | Number of times borrower has been 30-59 days past due but no worse in the last 2 years.                                                                  | integer    |
-| DebtRatio                            | Monthly debt payments, alimony,living costs divided by monthy gross income                                                                               | percentage |
-| MonthlyIncome                        | Monthly income                                                                                                                                           | real       |
-| NumberOfOpenCreditLinesAndLoans      | Number of Open loans (installment like car loan or mortgage) and Lines of credit (e.g. credit cards)                                                     | integer    |
-| NumberOfTimes90DaysLate              | Number of times borrower has been 90 days or more past due.                                                                                              | integer    |
-| NumberRealEstateLoansOrLines         | Number of mortgage and real estate loans including home equity lines of credit                                                                           | integer    |
-| NumberOfTime60-89DaysPastDueNotWorse | Number of times borrower has been 60-89 days past due but no worse in the last 2 years.                                                                  | integer    |
-| NumberOfDependents                   | Number of dependents in family excluding themselves (spouse, children etc.)                                                                              | integer    |
+Each region’s data is in a separate file. Data includes the video title, channel title, publish time, tags, views, likes and dislikes, description, and comment count.The data also includes a category_id field, which varies between regions.
+
+
 #### Preliminary Figures
-<img src="images/monthlyincome vs age with SeriousDlqin2yrs.png">
+<img src="images/correlation plot.png">
+
+In the correlation plot we can see there is a high correlation bewteen views and likes. Before looking at this graph I thought there would be a similiar correlation bewteen views and dislikes, but it looks like the correlation is a lot lower than between views and likes. The is also high correlation between likes and comment counts and dslikes and comment counts. 
+
+<img src="images/view_comment.png">
+
+The plot above proves our assumption is correct. There is a strong correlation between views and comments, then count of comments increase as likes of a video increases
+
+<img src="images/timepasses.png">
+
+Looking at plot of the time passes between published and trending, we can see videos never trend in the same day it is published, this makes sense because a trending video requires time to bediscovered before becomes a trending video. Most video trend a day after they get released. 
+
 
 #### Usage
 You'll need Docker and the ability to run Docker as your current user.
