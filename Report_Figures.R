@@ -51,6 +51,7 @@ video_cate = US2 %>%
   my_theme +
   ggtitle('Video Categories by Frequency')
 ggsave(file="images/VideoCategories_fre.png", width=10, height=5, dpi=300,video_cate)
+saveRDS(video_cate, "images/VideoCategories_fre.rds")
 
 Num_views= ggplot(US2, aes(views, fill = labels)) +
   geom_histogram(bins = 20) +
@@ -62,6 +63,7 @@ Num_views= ggplot(US2, aes(views, fill = labels)) +
   facet_wrap(~ labels, scale = 'free_y') +
   ggtitle("Number of views per category")
 ggsave(file="images/Num_views.png", width=10, height=5, dpi=300,Num_views)
+saveRDS(Num_views, "images/Num_views.rds")
 
 US2  %<>% 
   mutate(like_ratio = likes / (likes + dislikes))
@@ -73,6 +75,7 @@ like_dislike = US2 %>%
   theme_bw() +
   my_theme
 ggsave(file="images/like_dislike.png", width=10, height=5, dpi=300,like_dislike)
+saveRDS(like_dislike, "images/like_dislike.rds")
 
 views2m = US2  %>% 
   filter(views > 2000000) %>% 
@@ -82,6 +85,8 @@ views2m = US2  %>%
   theme_bw() +
   my_theme
 ggsave(file="images/views2m.png", width=10, height=5, dpi=300,views2m)
+saveRDS(views2m, "images/views2m.rds")
+
 
 
 

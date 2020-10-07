@@ -43,12 +43,11 @@ videos$dif_days <- videos$trending_date-videos$publish_time
 
 correlation = corrplot.mixed(corr = cor(videos[,c("category_id","views","likes","dislikes","comment_count"),with=F]))
 
-timepasses = ggplot(videos[dif_days<30],
-                    aes(as.factor(dif_days),fill=as.factor(dif_days)))
-+geom_bar()+guides(fill="none")
-+labs(title=" Time between published and trending",subtitle="In days")+xlab(NULL)+ylab(NULL)
-+ my_theme
-ggsave(file="images/timepasses.png", width=10, height=5, dpi=300,view_comment)
+timepasses = ggplot(videos[dif_days<30],aes(as.factor(dif_days),fill=as.factor(dif_days)))+geom_bar()+guides(fill="none")
++labs(caption="Donyoe",title=" Time between published and trending",subtitle="In days")+xlab(NULL)+ylab(NULL)
+
+ggsave(file="images/timepasses.png", width=10, height=5, dpi=300,timepasses)
+saveRDS(timepasses, "images/timepasses.rds")
 
 view_comment= ggplot(videos[,.("comment_count"=max(comment_count),"likes"=max(likes)),by=title],aes(comment_count,likes,colour=likes,size=likes))+
   geom_jitter()+geom_smooth()+guides(fill="none")+labs(caption="Donyoe",title="Views Vs Comment",subtitle="In days")+
@@ -57,3 +56,5 @@ view_comment= ggplot(videos[,.("comment_count"=max(comment_count),"likes"=max(li
                                                   
                                                   aes(comment_count,likes,label=''),check_overlap=T)
 ggsave(file="images/view_comment.png", width=10, height=5, dpi=300,view_comment)
+saveRDS(view_comment, "images/view_comment.rds")
+
