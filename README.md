@@ -26,6 +26,8 @@ This dataset includes several months (and counting) of data on daily trending Yo
 
 Each region’s data is in a separate file. Data includes the video title, channel title, publish time, tags, views, likes and dislikes, description, and comment count.The data also includes a category_id field, which varies between regions.
 
+The reason why I selected this dataset is I can study study how the preference of audiences from different countries varies. This interesting dataset can tell us plenty of infromation about the current scenario of country and what video contents/businesses are booming in that specific country. We can find lots of cool facts about youtube trending videos through this analysis.
+
 source: https://www.kaggle.com/datasnaek/youtube-new
 
 

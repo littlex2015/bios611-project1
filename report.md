@@ -4,6 +4,11 @@
 ***
 ### Report 
 ***
+
+In the analysis report, I will analyze youtube trending videos in the U.S only because this is the dataset that I am most familiar with. The purpose of this report is to give some suggestions to a new youtuber that wants to make the next trending video? : 
+1) What category of the video should the youtuber make? 
+2) What category of the video should the youtuber aviod? 
+3) How should the youtuber name his title of the video? 
 <img src="images/VideoCategories_fre.png">
 
 Looking at the Video Categories by frequency plot, we can see that Entertainment and music are the category that has the most trending videos. We can believe that there is a higher chance for music and entertainment become trending. Therefore, if a new youtuber wants to make a new trending video, he/she should probably make a video that is related to entertainment and music field.

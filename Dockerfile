@@ -9,6 +9,8 @@ Run R -e "install.packages('DT')"
 Run R -e "install.packages('lubridate')"
 Run R -e "install.packages('wordcloud')"
 Run R -e "install.packages('stringr')"
-Run R -e "install.packages('tidyverse')"
-
+Run R -e "install.packages('corrplot')"
+Run R -e "install.packages('ggrepel')"
+Run R -e "install.packages('hexbin')"
+Run R -e "install.packages('pacman')"
 RUN apt update && apt-get install emacs
