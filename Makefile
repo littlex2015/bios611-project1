@@ -23,7 +23,7 @@ images/VideoCategories_fre.rds\
  source_data/US_category_id.json
 	Rscript Report_Figures.R
 	
-images/timepasses.rds images/view_comment.rds:\
+images/timepasses.rds images/view_comment.rds images/correlation.rds:\
  Preliminary Figures.R\
  source_data/GBvideos.csv\
  source_data/FRvideos.csv\
