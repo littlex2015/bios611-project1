@@ -8,11 +8,11 @@
 YouTube (the world-famous video sharing website) maintains a list of the top trending videos on the platform. According to Variety magazine, “To determine the year’s top-trending videos, YouTube uses a combination of factors including measuring users interactions (number of views, shares, comments and likes). Note that they’re not the most-viewed videos overall for the calendar year”. Top performers on the YouTube trending list are music videos (such as the famously virile “Gangam Style”), celebrity and/or reality TV performances, and the random dude-with-a-camera viral videos that YouTube is well-known for.
 
 In this project, I will do some Exploratory Data Analysis on the dataset. This analysis will focus on answering the following questions:  
-1) Is there correlation between the number of views and the number of likes?
-2) What are the top trending Channels in all countries? 
-3) What are the most frequent type of video? 
-4) Which country has the most viewed videos in the trending field?
-5) Whats the most frequent names in title, description, tags?
+1) Is there correlation between the number of views and the number of likes/dislikes over all trending videos?
+2) Which Category has the most trending videos?
+3) What are the most frequent category of trending videos? 
+4) Which category has the most disliked videos? 
+5) Whats the most frequent names in title, description, tags of trending videos?
 
 Factors like the name of a video, the type of a video are significant elements of  a trending video. The answers from the quesitons above can help a youtuber to make the next trending video by finding the most popular types and names of the video. 
 
@@ -26,6 +26,8 @@ This dataset includes several months (and counting) of data on daily trending Yo
 
 Each region’s data is in a separate file. Data includes the video title, channel title, publish time, tags, views, likes and dislikes, description, and comment count.The data also includes a category_id field, which varies between regions.
 
+source: https://www.kaggle.com/datasnaek/youtube-new
+
 
 #### Preliminary Figures
 <img src="images/correlation plot.png">
@@ -35,11 +37,6 @@ In the correlation plot we can see there is a high correlation bewteen views and
 <img src="images/view_comment.png">
 
 The plot above proves our assumption is correct. There is a strong correlation between views and comments, then count of comments increase as likes of a video increases
-
-<img src="images/timepasses.png">
-
-Looking at plot of the time passes between published and trending, we can see videos never trend in the same day it is published, this makes sense because a trending video requires time to bediscovered before becomes a trending video. Most video trend a day after they get released. 
-
 
 #### Usage
 You'll need Docker and the ability to run Docker as your current user.

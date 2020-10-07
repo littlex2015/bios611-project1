@@ -1,9 +1,0 @@
-library(ggplot2)
-library(dplyr)
-
-# Preview the data
-diamonds
-diamonds_subset = sample_n(diamonds, 1000, replace=FALSE)
-
-
-
