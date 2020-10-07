@@ -24,13 +24,13 @@ images/VideoCategories_fre.rds\
 	Rscript Report_Figures.R
 	
 images/timepasses.rds images/view_comment.rds images/correlation.rds:\
- Preliminary Figures.R\
+ Preliminary_Figures.R\
  source_data/GBvideos.csv\
  source_data/FRvideos.csv\
  source_data/CAvideos.csv\
  source_data/USvideos.csv\
  source_data/DEvideos.csv
-	Rscript Preliminary Figures.R
+	Rscript Preliminary_Figures.R
 
 	
 	

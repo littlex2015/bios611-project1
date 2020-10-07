@@ -44,8 +44,7 @@ videos$dif_days <- videos$trending_date-videos$publish_time
 correlation = corrplot.mixed(corr = cor(videos[,c("category_id","views","likes","dislikes","comment_count"),with=F]))
 saveRDS(correlation, "images/correlation.rds")
 
-timepasses = ggplot(videos[dif_days<30],aes(as.factor(dif_days),fill=as.factor(dif_days)))+geom_bar()+guides(fill="none")
-+labs(caption="Donyoe",title=" Time between published and trending",subtitle="In days")+xlab(NULL)+ylab(NULL)
+timepasses = ggplot(videos[dif_days<30],aes(as.factor(dif_days),fill=as.factor(dif_days)))+geom_bar()+guides(fill="none")+ ggtitle('Time between published and trending')
 
 ggsave(file="images/timepasses.png", width=10, height=5, dpi=300,timepasses)
 saveRDS(timepasses, "images/timepasses.rds")
