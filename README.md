@@ -67,6 +67,6 @@ Or to run Bash:
 ***
 The Makefile is an excellent place to look to get a feel for the project.
 
-To build figures relating to the correlation plot for example, enter Bash either via the above incantation or with Rstudio and say:
+To build the final project report for this project for example, enter Bash either via the above incantation or with Rstudio and say:
 
-> make images/correlaton plot.png 
+> make Report.pdf
