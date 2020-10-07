@@ -8,7 +8,7 @@
 YouTube (the world-famous video sharing website) maintains a list of the top trending videos on the platform. According to Variety magazine, “To determine the year’s top-trending videos, YouTube uses a combination of factors including measuring users interactions (number of views, shares, comments and likes). Note that they’re not the most-viewed videos overall for the calendar year”. Top performers on the YouTube trending list are music videos (such as the famously virile “Gangam Style”), celebrity and/or reality TV performances, and the random dude-with-a-camera viral videos that YouTube is well-known for.
 
 In this project, I will do some Exploratory Data Analysis on the dataset. This analysis will focus on answering the following questions:  
-1) Is there correlation between the number of views and the number of likes/dislikes over all trending videos?
+1) Is there correlation between the number of views and the number of comments over all trending videos?
 2) Which Category has the most trending videos?
 3) What are the most frequent category of trending videos? 
 4) Which category has the most disliked videos? 

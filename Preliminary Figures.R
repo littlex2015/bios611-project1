@@ -50,9 +50,10 @@ timepasses = ggplot(videos[dif_days<30],
 + my_theme
 ggsave(file="images/timepasses.png", width=10, height=5, dpi=300,view_comment)
 
-view_comment= ggplot(videos[,.("comment_count"=max(comment_count),"likes"=max(likes)),by=title],aes(comment_count,likes,colour=likes,size=likes))+geom_jitter()+geom_smooth()+guides(fill="none")+labs(caption="Donyoe",title="Views Vs Comment",subtitle="In days")+
+view_comment= ggplot(videos[,.("comment_count"=max(comment_count),"likes"=max(likes)),by=title],aes(comment_count,likes,colour=likes,size=likes))+
+  geom_jitter()+geom_smooth()+guides(fill="none")+labs(caption="Donyoe",title="Views Vs Comment",subtitle="In days")+
   
   my_theme+geom_text_repel(data=subset(videos[,.("comment_count"=max(comment_count),"likes"=max(likes)),by=title], likes > 1e+06),
                                                   
-                                                  aes(comment_count,likes,label=title),check_overlap=T)
+                                                  aes(comment_count,likes,label=''),check_overlap=T)
 ggsave(file="images/view_comment.png", width=10, height=5, dpi=300,view_comment)
