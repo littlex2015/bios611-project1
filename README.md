@@ -40,7 +40,8 @@ In the correlation plot we can see there is a high correlation bewteen views and
 
 The plot above proves our assumption is correct. There is a strong correlation between views and comments, then count of comments increase as likes of a video increases
 
-#### Usage
+### Usage
+***
 You'll need Docker and the ability to run Docker as your current user.
 
 You'll need to build the container:
@@ -62,7 +63,8 @@ Or to run Bash:
 
 > docker run -v `pwd`:/home/rstudio -e PASSWORD=some_pw -it l6 sudo -H -u rstudio /bin/bash -c "cd ~/; /bin/bash"
 
-#### Makefile
+### Makefile
+***
 The Makefile is an excellent place to look to get a feel for the project.
 
 To build figures relating to the correlation plot for example, enter Bash either via the above incantation or with Rstudio and say:
