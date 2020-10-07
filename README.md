@@ -61,3 +61,10 @@ If you are cool and you want to run this on the command line:
 Or to run Bash:
 
 > docker run -v `pwd`:/home/rstudio -e PASSWORD=some_pw -it l6 sudo -H -u rstudio /bin/bash -c "cd ~/; /bin/bash"
+
+#### Makefile
+The Makefile is an excellent place to look to get a feel for the project.
+
+To build figures relating to the correlation plot for example, enter Bash either via the above incantation or with Rstudio and say:
+
+> make images/correlaton plot.png 

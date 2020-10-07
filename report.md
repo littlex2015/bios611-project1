@@ -18,7 +18,7 @@ However,another reason why entertainment has the most videos is that standard of
 
 <img src="images/Num_views.png">
 
-It is obvious that all categories show a normal distribution, The views at some categories, such as gaming,education, travel and evenent are stables, which means that views in these categories tend to watch/ subscribe to the same channels and don't change their perefences very often. We can conclude that the entertainment and music have high potential growth while education and gaming have low potential growth. This leads to a suggestion that a new youtuber should create a channel related to music or entertainment.   
+It is obvious that all categories show a normal distribution, The views at some categories, such as gaming,education, travel and event are stables, which means that views in these categories tend to watch/ subscribe to the same channels and don't change their perefences very often. We can conclude that the entertainment and music have high potential growth while education and gaming have low potential growth. This leads to a suggestion that a new youtuber should create a channel related to music or entertainment.   
 
 
 Next, Let's look at Like/Dislike ratio of videos in each categories to get a picture of the videos with the best public reception. 
@@ -32,10 +32,25 @@ Every youtuber has a big dream that is having a video with over 2m views. Let's 
 
 <img src="images/views2m.png">
 
-It is clear that Entertainment and Music have the largest potential to have the most views. Please note that a category having least videos with 2M views doesn't mean this category has the lowest performance. Categoty like Film&Animation perform really well but the number of video within this category is relatively. Therefore, if making entertainment or music video don't work for some youtubers, there're always other options. 
+It is clear that Entertainment and Music have the largest potential to have the most views. One interesting obeservation from the plot is that a category having least videos with 2M views doesn't mean this category has the lowest performance. Categoty like Film&Animation perform really well but the number of video within this category is relatively. Therefore, if making entertainment or music video don't work for some youtubers, there're always other options. 
 
 <img src="images/timepasses.png">
 
-Looking at plot of the time passes between published and trending, we can see videos never trend in the same day it is published, this makes sense because a trending video requires time to bediscovered before becomes a trending video. Most video trend a day after they get released. 
+Looking at plot of the time passes between published and trending, It's interesting to see videos never trend in the same day it is published, this makes sense because a trending video requires time to be discovered before becoming a trending video. But I'm still suprised that most video trend only a day after they get released. 
 
 ###### still need to answer Whats the most frequent names in title, description, tags of trending videos? 
+
+Possible uses for this dataset could include:
+
+### Future development 
+***
+Futher analysis for this dataset could include:
+1. Sentiment analysis in a variety of forms
+2. Categorising YouTube videos based on their comments and statistics.
+3. Training ML algorithms like RNNs to generate their own YouTube comments.
+4. Analysing what factors affect how popular a YouTube video will be.
+5. Statistical analysis over time.
+6. Distribution of Attributes
+7. Predict number of likes depends on several factors. 
+Because this dataset was collected using the YouTube API, this dataset should be updated regularly. 
+
