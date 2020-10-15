@@ -17,5 +17,5 @@ Run R -e "install.packages('jsonlite')"
 Run R -e "install.packages('magrittr')"
 Run R -e "install.packages('MLmetrics')"
 Run R -e "install.packages('Rtsne')"
-
+Run R -e "install.packages('Hmisc')"
 
