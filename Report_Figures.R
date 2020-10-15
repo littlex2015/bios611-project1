@@ -46,8 +46,8 @@ my_theme <- theme(plot.title = element_text(size = 20),
 video_cate = US2 %>%
   ggplot(aes(x = labels, fill = labels))  +
   geom_bar() + 
-  geom_text(stat='count', aes(y=..count.., label = ..count..), vjust = -1) +
   theme_bw() + 
+  theme(legend.position = "none")+
   my_theme +
   ggtitle('Video Categories by Frequency')
 ggsave(file="images/VideoCategories_fre.png", width=10, height=5, dpi=300,video_cate)
@@ -59,7 +59,7 @@ Num_views= ggplot(US2, aes(views, fill = labels)) +
   theme_bw() + 
   labs(x = 'Views', y = '', fill = '') +
   theme(plot.title = element_text(size = 20),
-        legend.text = element_text(size = 12)) +
+        legend.text = element_text(size = 12),legend.position = "none") +
   facet_wrap(~ labels, scale = 'free_y') +
   ggtitle("Number of views per category")
 ggsave(file="images/Num_views.png", width=10, height=5, dpi=300,Num_views)
@@ -71,7 +71,7 @@ US2  %<>%
 like_dislike = US2 %>% 
   ggplot(aes(labels, like_ratio, col = labels)) +
   geom_boxplot(na.rm=TRUE) +
-  ggtitle('Like/Dislike ratio per category - Boxplot') +
+  ggtitle('Like/Dislike ratio per category') +
   theme_bw() +
   my_theme
 ggsave(file="images/like_dislike.png", width=10, height=5, dpi=300,like_dislike)

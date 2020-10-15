@@ -1,0 +1,146 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+```{r}
+#Question 1
+library(gbm)
+library(plyr)
+library(MLmetrics)
+library(Hmisc)
+library(tidyverse);
+library(Rtsne);
+data <- read_csv("500_Person_Gender_Height_Weight_Index.csv")
+head(data)
+
+```
+```{r}
+smp_size <- floor(0.75 * nrow(data))
+
+## set the seed to make your partition reproducible
+set.seed(100)
+train_ind <- sample(seq_len(nrow(data)), size = smp_size)
+
+train <- data[train_ind, ]
+test <- data[-train_ind, ]
+test
+```
+```{r}
+#training_data$Classification <- as.factor(training_data$Classification)
+model <- glm(as.factor(Gender) ~ Height +
+                 Weight,family=binomial(link='logit'),data=train)
+pred <- predict(model, newdata=test, type="response");
+sum(pred>0.5)/nrow(test)
+```
+
+```{r}
+#questoin 2
+person_info2 <- read_csv("500_Person_Gender_Height_Weight_Index.csv")
+person_info2$Gender = factor(person_info2$Gender, 
+                        levels = c("Male","Female"),
+                        labels = c(0,1))
+
+person_info2$Gender <- as.character(person_info2$Gender)
+head(person_info2)
+
+smp_size2 <- floor(0.75 * nrow(person_info2))
+
+## set the seed to make your partition reproducible
+set.seed(100)
+train_ind2 <- sample(seq_len(nrow(person_info2)), size = smp_size2)
+
+train2 <- person_info2[train_ind2, ]
+test2 <- person_info2[-train_ind2, ]
+```
+```{r}
+train2
+model2 <- gbm(Gender ~ Height + Weight,distribution="bernoulli",data=train2,
+             n.trees = 100,
+             interaction.depth = 2,
+             shrinkage = 0.1);
+pred2 <- predict(model2, newdata = test2, type="response");
+
+sum(pred2>0.5)/nrow(test2)
+```
+```{r}
+#question 3
+data2 = read_csv("500_Person_Gender_Height_Weight_Index.csv")
+data2 <- data2 %>%
+    filter(Gender == 'Female')
+data3 = read_csv("500_Person_Gender_Height_Weight_Index.csv")
+
+data3 <- data3 %>%
+    filter(Gender == 'Male')%>%head(50)
+
+data4 = rbind(data2,data3)
+data4$Gender = factor(data4$Gender, 
+                        levels = c("Male","Female"),
+                        labels = c(0,1))
+```
+```{r}
+smp_size <- floor(0.75 * nrow(data4))
+
+## set the seed to make your partition reproducible
+set.seed(100)
+train_ind <- sample(seq_len(nrow(data4)), size = smp_size)
+
+train <- data4[train_ind, ]
+test <- data4[-train_ind, ]
+```
+
+```{r}
+model3 <- glm(Gender ~ Height +
+                 Weight,family=binomial(link='logit'),data=train)
+pred <- predict(model3, newdata=test, type="response");
+```
+```{r}
+pred <- as.numeric(pred)
+test$Gender = as.numeric(test$Gender)
+f1 <- MLmetrics::F1_Score;
+pred[10] <- 0
+f1(test$Gender,as.numeric(pred>0.5))
+#my model always predict true. 
+```
+
+```{r}
+#question 4 
+ggplot(tibble(p_gender=pred),aes(p_gender)) + geom_density() + geom_vline(xintercept=0.5);
+roc <- do.call(rbind, Map(function(threshold){
+    p <- pred > threshold;
+    tp <- sum(p[test$Gender])/sum(test$Gender);
+    fp <- sum(p[!test$Gender])/sum(!test$Gender);
+    tibble(threshold=threshold,
+           tp=tp,
+           fp=fp)
+},seq(100)/100))
+
+ggplot(roc, aes(fp,tp)) + geom_line() + xlim(0,1) + ylim(0,1) +
+    labs(title="ROC Curve",x="False Positive Rate",y="True Positive Rate");
+```
+4. The ROC curve is the Plot of True Positive Rate against False Postive Rate. The area under the curve is a good threshold-free estimate of the performance of the classifier.
+
+
+
+
+```{r}
+
+source("utils.R");
+data5 <- read_csv("500_Person_Gender_Height_Weight_Index.csv") 
+
+data5$Gender = factor(data5$Gender, 
+                        levels = c("Male","Female"),
+                        labels = c(0,1))
+```
+
+
+```{r}
+cc <- kmeans(data5, 4);
+fit <- Rtsne(data5, dims = 2,check_duplicates = FALSE);
+ggplot(fit$Y %>% as.data.frame() %>% as_tibble() %>% mutate(label=cc$cluster),aes(V1,V2)) +
+    geom_point(aes(color=factor(label)));
+```
+```{r}
+cc$centers
+```
+5)There are some clusters in the right and left based on the plot. Based on the centers of the clusters, male tend to have a larger height and larger weight. Female tend to have a lower height and lower weight. So label 1 can be a female with low height and weight. label 2 can be a male with high height and high weight. 

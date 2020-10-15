@@ -55,14 +55,6 @@ This Docker container is based on rocker/verse. To run rstudio server:
 
 Then connect to the machine on port 8787.
 
-If you are cool and you want to run this on the command line:
-
-> docker run -v `pwd`:/home/rstudio -e PASSWORD=some_pw -it l6 sudo -H -u rstudio /bin/bash -c "cd ~/; R"
-
-Or to run Bash:
-
-> docker run -v `pwd`:/home/rstudio -e PASSWORD=some_pw -it l6 sudo -H -u rstudio /bin/bash -c "cd ~/; /bin/bash"
-
 ### Makefile
 ***
 The Makefile is an excellent place to look to get a feel for the project.

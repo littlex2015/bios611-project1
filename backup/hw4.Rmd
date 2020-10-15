@@ -1,0 +1,80 @@
+---
+title: "hw4"
+output: html_document
+---
+```{r}
+#question 1
+library(gbm)
+library(plyr)
+person_info <- read_csv("500_Person_Gender_Height_Weight_Index.csv")
+person_info$Gender = factor(person_info$Gender, 
+                        levels = c("Male","Female"),
+                        labels = c(0,1))
+
+head(person_info)
+
+```
+
+```{r}
+# Splitting the dataset into the Training set and Test set
+## 75% of the sample size
+smp_size <- floor(0.75 * nrow(person_info))
+
+## set the seed to make your partition reproducible
+set.seed(100)
+train_ind <- sample(seq_len(nrow(person_info)), size = smp_size)
+
+train <- person_info[train_ind, ]
+test <- person_info[-train_ind, ]
+test
+```
+
+```{r}
+model <- glm(Gender ~ Height + Weight,family=binomial(link='logit'),data=train)
+test$model_prob <- predict(model, test, type = "response")
+test <- test  %>% mutate(model_pred = 1*(model_prob > .5) + 0,
+                                 gender_binary = 1*(Gender == "Female") + 0)
+test <- test %>% mutate(accurate = 1*(model_pred == gender_binary))
+sum(test$accurate)/nrow(test)
+
+
+
+```
+```{r}
+#questoin 2
+person_info2 <- read_csv("500_Person_Gender_Height_Weight_Index.csv")
+person_info2$Gender = factor(person_info2$Gender, 
+                        levels = c("Male","Female"),
+                        labels = c(0,1))
+
+person_info2$Gender <- as.character(person_info2$Gender)
+head(person_info2)
+
+smp_size2 <- floor(0.75 * nrow(person_info2))
+
+## set the seed to make your partition reproducible
+set.seed(100)
+train_ind2 <- sample(seq_len(nrow(person_info2)), size = smp_size2)
+
+train2 <- person_info2[train_ind2, ]
+test2 <- person_info2[-train_ind2, ]
+```
+
+
+
+```{r}
+train2
+model2 <- gbm(Gender ~ Height + Weight,distribution="bernoulli",data=train2,
+             n.trees = 100,
+             interaction.depth = 2,
+             shrinkage = 0.1);
+pred2 <- predict(model2, newdata = test2, type="response");
+
+sum(pred2>0.5)/nrow(test2);
+
+```
+
+```{r}
+
+```
+

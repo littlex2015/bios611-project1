@@ -13,4 +13,9 @@ Run R -e "install.packages('corrplot')"
 Run R -e "install.packages('ggrepel')"
 Run R -e "install.packages('hexbin')"
 Run R -e "install.packages('pacman')"
-RUN apt update && apt-get install emacs
+Run R -e "install.packages('jsonlite')"
+Run R -e "install.packages('magrittr')"
+Run R -e "install.packages('MLmetrics')"
+Run R -e "install.packages('Rtsne')"
+
+

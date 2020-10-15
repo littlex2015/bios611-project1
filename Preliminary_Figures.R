@@ -1,4 +1,4 @@
-library("data.table")
+library(data.table)
 library(lubridate)
 library(corrplot)
 library(ggplot2)
