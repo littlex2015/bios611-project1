@@ -12,7 +12,8 @@ In this project, I will do some Exploratory Data Analysis on the dataset. This a
 2) Which Category has the most trending videos?
 3) What are the most frequent category of trending videos? 
 4) Which category has the most disliked videos? 
-5) Whats the most frequent names in title, description, tags of trending videos?
+5) How long does it take for videos become trending after they are published? 
+
 
 Factors like the name of a video, the type of a video are significant elements of  a trending video. The answers from the quesitons above can help a youtuber to make the next trending video by finding the most popular types and names of the video. 
 

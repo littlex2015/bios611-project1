@@ -1,5 +1,13 @@
 library(pacman)
-p_load(tidyverse, data.table, jsonlite, magrittr, corrplot, DT, tm, sentimentr, wordcloud)
+library(tidyverse)
+library(data.table)
+library(jsonlite)
+library(magrittr)
+library(corrplot)
+library(DT)
+library(tm)
+library(sentimentr)
+library(wordcloud)
 # Loading the CSV documents and removing unnecessary columns to make the database easier to work with 
 US <- read.csv("source_data/USvideos.csv") %>% 
   select(-tags, -description, -video_id)
@@ -73,6 +81,7 @@ like_dislike = US2 %>%
   geom_boxplot(na.rm=TRUE) +
   ggtitle('Like/Dislike ratio per category') +
   theme_bw() +
+  theme(legend.position = "none")+
   my_theme
 ggsave(file="images/like_dislike.png", width=10, height=5, dpi=300,like_dislike)
 saveRDS(like_dislike, "images/like_dislike.rds")

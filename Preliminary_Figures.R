@@ -5,6 +5,8 @@ library(ggplot2)
 library(dplyr)
 library(hexbin)
 library(ggrepel)
+
+# By category analysis
 my_theme <- theme(plot.title = element_text(size = 20),
                   axis.title = element_blank(),
                   axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 10),
@@ -44,7 +46,8 @@ videos$dif_days <- videos$trending_date-videos$publish_time
 correlation = corrplot.mixed(corr = cor(videos[,c("category_id","views","likes","dislikes","comment_count"),with=F]))
 saveRDS(correlation, "images/correlation.rds")
 
-timepasses = ggplot(videos[dif_days<30],aes(as.factor(dif_days),fill=as.factor(dif_days)))+geom_bar()+guides(fill="none")+ ggtitle('Time between published and trending')
+timepasses = ggplot(videos[dif_days<30],aes(as.factor(dif_days),fill=as.factor(dif_days)))+
+  geom_bar()+guides(fill="none")+ xlab('Days Difference')+ ggtitle('Time between published and trending')
 
 ggsave(file="images/timepasses.png", width=10, height=5, dpi=300,timepasses)
 saveRDS(timepasses, "images/timepasses.rds")

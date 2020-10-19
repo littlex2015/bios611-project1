@@ -50,3 +50,4 @@ install.packages('l3backend')
 make images/timepasses.rds
 make Report.pdf
 install.packages(MLmetrics)
+make Report.pdf
