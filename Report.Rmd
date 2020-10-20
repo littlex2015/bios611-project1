@@ -12,7 +12,7 @@ output:
 
 In the analysis report, I will analyze youtube trending videos in the U.S only because this is the dataset that I am most familiar with. The purpose of this report is to give some suggestions to a new youtuber that wants to make the next trending video: 
 1) What category of the video should the youtuber make? 
-2) What category of the video should the youtuber aviod? 
+2) What category of the video should the youtuber avoid? 
 3) What kind of video have the best public reception?
 4) How to make the next trending video with 2M views?
 5) How long does it take for videos become trending after they are published? 
@@ -65,9 +65,9 @@ In conclusion, The observation suggests that new youtubers should make videos ab
 ***
 Futher analysis for this dataset could include:
 1. Sentiment analysis in a variety of forms
-2. Categorising YouTube videos based on their comments and statistics.
+2. Categorizing YouTube videos based on their comments and statistics.
 3. Training ML algorithms like RNNs to generate their own YouTube comments.
-4. Analysing what factors affect how popular a YouTube video will be.
+4. Analyzing what factors affect how popular a YouTube video will be.
 5. Statistical analysis over time.
 6. Distribution of Attributes
 7. Predict number of likes depends on several factors. 
