@@ -41,7 +41,7 @@ readRDS("images/like_dislike.rds")
 
 Next, Let's look at Like/Dislike ratio of videos in each categories to get a picture of the videos with the best public reception. 
 
-According to the plot, News & politics is the most disliked category based on the plot as we can see there is a cluster near the end of the news & politics category, followed by sports, auto/vehicles and entertainment. The wide ranges of boxplot in within these categories mean that the comments are controverted. In conclusion, Music seems to have the best public reception and if the youtuber is good at music-related skills. He/she should make a music video so that it can have the best change to become the next trending video, at the same time, they should aviod sports, auto/vehicles contents.
+According to the plot, News & politics is the most disliked category based on the plot as we can see there is a cluster near the end of the news & politics category, followed by sports, auto/vehicles and entertainment. It is interesting to see there is a cluster near the end of the news & politics category and what causes this kind of situation. The wide ranges of boxplots in within these categories mean that the comments are controverted. In conclusion, Music seems to have the best public reception and if the youtuber is good at music-related skills. He/she should make a music video so that it can have the best change to become the next trending video, at the same time, they should aviod sports, auto/vehicles contents.
 
 <img src="images/views2m.png">
 ```{r,echo=FALSE}
