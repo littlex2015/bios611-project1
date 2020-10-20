@@ -59,6 +59,8 @@ readRDS("images/timepasses.rds")
 
 Looking at plot of the time passes between published and trending, It's interesting to see videos never trend in the same day it is published, this makes sense because a trending video requires time to be discovered before becoming a trending video. But I'm still surprised that most video trend only a day after they get released. Therefore, please be patient if the video doesn't go viral after it get released.  
 
+In conclusion, The observation suggests that new youtubers should make videos about entertainment and music in order to have the best chance of turning into trending videos. At the same time, they should avoid making gaming,education,travel and event videos since these categories have lower potential growths. In addition, news and politics might be problematic because it has the least public reception. Please be patient after the release of the video since most videos go viral after a day or two. 
+
 ### Future development 
 ***
 Futher analysis for this dataset could include:
