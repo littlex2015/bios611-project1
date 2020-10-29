@@ -51,3 +51,11 @@ make images/timepasses.rds
 make Report.pdf
 install.packages(MLmetrics)
 make Report.pdf
+install.packages(ggfortify)
+install.packages('ggfortify'))
+install.packages('ggfortify')
+install.packages('xlsx')
+install.packages(xlsx)
+install.packages("ggfortify")
+install.packages("rvest_0.3.5.tar.gz", dependencies = TRUE)
+install.packages('e1071', dependencies=TRUE)

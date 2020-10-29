@@ -20,6 +20,11 @@ Run R -e "install.packages('Rtsne')"
 Run R -e "install.packages('Hmisc')"
 Run R -e "install.packages('tm')"
 Run R -e "install.packages('sentimentr')"
+Run R -e "install.packages('ggfortify')"
+Run R -e "install.packages('e1071', dependencies=TRUE)"
+RUN apt update -y && apt install -y python3-pip
+RUN pip3 install jupyter jupyterlab
+RUN pip3 install numpy pandas sklearn plotnine matplotlib pandasql bokeh bioinfokit
 
 
 

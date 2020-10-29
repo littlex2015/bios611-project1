@@ -1,0 +1,108 @@
+```{r}
+#Question 1
+library(gbm)
+library(plyr)
+library(MLmetrics)
+library(Hmisc)
+library(tidyverse);
+library(Rtsne);
+data <- read_csv("datasets_26073_33239_weight-height.csv")
+```
+```{r}
+data$Gender = factor(data$Gender, 
+                        levels = c("Male","Female"),
+                        labels = c(0,1))
+data$Gender <- as.character(data$Gender)
+head(data$Gender)
+```
+```{r}
+
+smp_size <- floor(0.75 * nrow(data))
+
+## set the seed to make your partition reproducible
+set.seed(100)
+train_ind <- sample(seq_len(nrow(data)), size = smp_size)
+
+train <- data[train_ind, ]
+test <- data[-train_ind, ]
+```
+```{r}
+model <- gbm(Gender ~ Height + Weight,distribution="bernoulli",data=train,
+             n.trees = 100,
+             interaction.depth = 2,
+             shrinkage = 0.1);
+pred <- predict(model, newdata = test, type="response");
+sum(pred>0.5)/nrow(test)
+```
+1. The result of the last exercise was 0.464, the accuracy of the last exercise is close to this one which is 0.506. 
+```{r}
+data2 <- read_csv("datasets_38396_60978_charcters_stats.csv")
+data2
+```
+```{r}
+boxplot(data2[3])
+boxplot(data2[4])
+boxplot(data2[5])
+boxplot(data2[6])
+boxplot(data2[7])
+boxplot(data2[8])
+boxplot(data2[9])
+```
+Q2
+1. Depending on the boxplot, there are not any irregualarities and I dont need to filter out a subset of rows.
+```{r}
+data2.pca <- prcomp(data2[,3:9])
+data2.pca
+summary(data2.pca)
+```
+Q2:
+2. According to the result of the principal component analysis, we need 1 component to get 85% of the variation in the data set. 
+3. We dont need to normalize these columns. 
+4. The total column is the total of the values in other numerical columns. 
+5. We shouldn't inlude that in the PCA, the largest principal components and the total column have the largest weighted values 
+
+```{r}
+library(ggfortify)
+pca.plot <- autoplot(data2.pca, data = data2,colour = 'Alignment')
+pca.plot
+```
+6)The points of the 4 groups are clustered for the most part; however, the three points at the right of the graph may be outliers. The data does not appear to depart widely from multivariate normality. 
+```{r}
+library(Rtsne);
+Labels <- data2$Alignment
+data2$Alignment <- as.factor(data2$Alignment)
+colors = rainbow(length(unique(data2$Alignment)))
+names(colors) = unique(data2$Alignment)
+tsne <- Rtsne(data2[,3:9], dims = 2, perplexity=30, verbose=TRUE, max_iter = 500,check_duplicates = FALSE)
+exeTimeTsne<- system.time(Rtsne(data2[,3:9], dims = 2, perplexity=30, verbose=TRUE, max_iter = 500,check_duplicates = FALSE))
+```
+```{r}
+plot(tsne$Y, t='n', main="tsne")
+text(tsne$Y, labels=data2$Alignment, col=colors[data2$Alignment])
+```
+Q3:
+The points within the individual clusters are highly similar to each other and close to points in other clusters. The same pattern likely holds in a high-dimensional original dataset. In the digits dataset, t-SNE didn't separate clusters of each digit class. In the context of alignment, these clusters represent the alignment with similar associated characters.
+Q4:
+The plot produced by python is in the same directory that was named as 'tsne_2d'. 
+```{r}
+data3 = data2[,2:9]
+data3
+library(caret);
+control <- trainControl(method="repeatedcv", number=10, repeats=3)
+set.seed(7)
+modelGbm <- train(Alignment~., data=data3, method="gbm",na.action=na.exclude, trControl=control, verbose=FALSE)
+summary(modelGbm)
+modelGbm
+```
+Q5:
+According to the results generated above, the best parameters are intelligence, total, speed and strength. 
+```{r}
+set.seed(7)
+data4 = data3
+data4 = data4 %>% relocate(Alignment, .after = last_col())
+data4
+
+control <- rfeControl(functions=rfFuncs, method="cv", number=10)
+results <- rfe(data4[,1:7], data4[[8]], sizes=c(1:8), na.action=na.exclude, rfeControl=control)
+
+```
