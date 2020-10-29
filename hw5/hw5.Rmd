@@ -49,15 +49,20 @@ boxplot(data2[8])
 boxplot(data2[9])
 ```
 Q2
+
 1. Depending on the boxplot, there are not any irregualarities and I dont need to filter out a subset of rows.
 ```{r}
 data2.pca <- prcomp(data2[,3:9])
 data2.pca
 summary(data2.pca)
 ```
+
 Q2:
+
 2. According to the result of the principal component analysis, we need 1 component to get 85% of the variation in the data set. 
+
 3. We dont need to normalize these columns. 
+
 4. The total column is the total of the values in other numerical columns. 
 5. We shouldn't inlude that in the PCA, the largest principal components and the total column have the largest weighted values 
 
@@ -66,6 +71,7 @@ library(ggfortify)
 pca.plot <- autoplot(data2.pca, data = data2,colour = 'Alignment')
 pca.plot
 ```
+
 6)The points of the 4 groups are clustered for the most part; however, the three points at the right of the graph may be outliers. The data does not appear to depart widely from multivariate normality. 
 ```{r}
 library(Rtsne);
@@ -82,6 +88,7 @@ text(tsne$Y, labels=data2$Alignment, col=colors[data2$Alignment])
 ```
 Q3:
 The points within the individual clusters are highly similar to each other and close to points in other clusters. The same pattern likely holds in a high-dimensional original dataset. In the digits dataset, t-SNE didn't separate clusters of each digit class. In the context of alignment, these clusters represent the alignment with similar associated characters.
+
 Q4:
 The plot produced by python is in the same directory that was named as 'tsne_2d'. 
 ```{r}
@@ -110,6 +117,7 @@ predictors(results)
 ```
 Q5:
 According to the results generated above, the best parameters are Intelligence, Combat, Durability, Power, Total.
+
 Q6: 
 k-fold Cross-validation is a resampling procedure used to evaluate machine learning models on a limited data sample.
 
