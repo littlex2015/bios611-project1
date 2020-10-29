@@ -94,15 +94,31 @@ modelGbm <- train(Alignment~., data=data3, method="gbm",na.action=na.exclude, tr
 summary(modelGbm)
 modelGbm
 ```
-Q5:
-According to the results generated above, the best parameters are intelligence, total, speed and strength. 
 ```{r}
 set.seed(7)
 data4 = data3
 data4 = data4 %>% relocate(Alignment, .after = last_col())
-data4
+data4 <- na.omit(data4)
 
 control <- rfeControl(functions=rfFuncs, method="cv", number=10)
-results <- rfe(data4[,1:7], data4[[8]], sizes=c(1:8), na.action=na.exclude, rfeControl=control)
+results <- rfe(data4[,1:7], data4[[8]], sizes=c(1:8),rfeControl=control)
 
 ```
+```{r}
+print(results)
+predictors(results)
+```
+Q5:
+According to the results generated above, the best parameters are Intelligence, Combat, Durability, Power, Total.
+Q6: 
+k-fold Cross-validation is a resampling procedure used to evaluate machine learning models on a limited data sample.
+
+The reasons why we need to use k-fold cross-validation are it is simple to understand and it is generally results in a less biased or less optimistic estimate of the model skill than other methods, such as a simple train/test split. We are able to 1)make predictions on all of our data using k-fold cross-validation. 2) get more metrics and draw important conclusion both about our algorithm and our data.3)work with dependent/grouped data. 4) Do Parameters Fine-Tuning
+
+if we just report a single number for the accuracy of our model, this accuracy is more likely to be biased and inaccurate. 
+
+Q7:
+Recursive Feature Elimination, or RFE, is a popular feature selection algorithm. it is easy to configure and it is effective at selecting the best features. 
+
+RFE works by searching for a subset of features by starting with all features in the training dataset and removing features until the desired number remains. 
+In other words, RFE works as follows: fitting the given machine learning algorithm used in the core of the model, ranking features by importance, discarding the least important features, and re-fitting the model. This process is repeated until a specified number of features remains.
