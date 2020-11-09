@@ -18,7 +18,7 @@ then go to a browser and run
 If you want to run the shiny app on another port, replace 8788 above
 (in all places) with the appropriate port.
 
-## report 
+## Analysis 
 1. 20 pts: Does the Shiny project run from the Makefile and make appropriateuse of other artifacts in the repository?
 
 Yes, just simply type "PORT=8788 make app" in the Rstuio terminal and the shiny project will run. Data pre-processing is also expressed as a dependency in the Makefile. 
