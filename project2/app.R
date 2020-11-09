@@ -40,7 +40,7 @@ ui <- dashboardPage(skin = "blue",
                     ),
                     dashboardBody(
                       tabBox(
-                        title = "Trended YouTube Videos Statistic",
+                        title = "Trended YouTube Videos Statistics",
                         id = "my_set", height = "550px", width = "850px",
                         tabPanel("Engagement by Category", id = "tab1",value='tab1_val', plotOutput("boxPlot"))
                       ) 
