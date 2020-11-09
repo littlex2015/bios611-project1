@@ -20,7 +20,7 @@ choices_num <- c("Select All", choices_num)
 
 ui <- dashboardPage(skin = "blue",
                     
-                    dashboardHeader(title="YouTube Trending Analytics", titleWidth =300),
+                    dashboardHeader(title="YouTube Trending Analytics", titleWidth =350),
                     
                     dashboardSidebar(
                       
@@ -28,53 +28,28 @@ ui <- dashboardPage(skin = "blue",
                         
                         id = "tabs",
                         
-                        #conditional panels allow side bar tabs to change with selection
                         conditionalPanel("input.my_set == 'tab1_val'",
                                          selectInput(
                                            "engagement", "Type of Engagement", c("Views",
                                                                                  "Likes",
                                                                                  "Dislikes",
                                                                                  "Comment Count"="Comment_Count"))
-                        ),
-                        conditionalPanel("input.my_set == 'tab2_val'",
-                                         selectInput(
-                                           "time", "Video Upload Time", c("Time of Day",
-                                                                          "Day of Week")
-                                         ),
-                                         # textOutput("Graph shows video upload times for trending YouTube videos. 
-                                         #          Users may use this a guideline for upload times of the most popular content creators"),
-                                         selectInput(
-                                           "category", "Category", choice = choices_num
-                                         )
-                                         
-                        ),
-                        
-                        conditionalPanel("input.my_set == 'tab3_val'",
-                                         radioButtons("text", "Choose Source", c("Title", "Description")),
-                                         selectInput("ngram", "1-2-3 Words", choice = c("Monogram", "Bigram", "Trigram")),
-                                         selectInput("categoryw", "Category", choice = choices_num)
-                                         
                         )
                         
                       )
                     ),
                     dashboardBody(
                       tabBox(
-                        title = "Trended YouTube Videos from Nov. 2017 - June 2018",
-                        # The id lets us use input$tabset1 on the server to find the current tab
-                        id = "my_set", height = "500px", width = "800px",
+                        title = "Trended YouTube Videos Statistic",
+                        id = "my_set", height = "550px", width = "850px",
                         tabPanel("Engagement by Category", id = "tab1",value='tab1_val', plotOutput("boxPlot"))
-                        
-                        
                       ) 
                     )
-                    
-                    
 )
 
 server <- function(input, output) {
   
-  # boxplot outputs
+  # boxplot
   output$boxPlot <- renderPlot({
     df %>%
       ggplot() +
@@ -84,8 +59,8 @@ server <- function(input, output) {
       scale_y_log10(labels = comma) +
       labs(x="", y=paste(input$engagement, "per Video")) +
       theme(legend.position = "none") + 
-      theme(axis.text=element_text(size=14),
-            axis.title=element_text(size=14,face="bold")) +
+      theme(axis.text=element_text(size=15),
+            axis.title=element_text(size=15,face="bold")) +
       coord_flip()
   })
 }
