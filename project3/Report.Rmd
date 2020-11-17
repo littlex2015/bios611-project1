@@ -76,7 +76,7 @@ Because this dataset was collected using the YouTube API, this dataset should be
 
 ### Wordcloud created by Python 
 ![](images/wordcloud.png)
-In project 3, I used python to answer the questions: "Whats the most frequent names in title, description, tags of trending videos?". As we can see in the wordcloud image, word like "official", "trailer", "new", "live", "star", "music" are the most popular names in title of tredning video. Therefore, make sure to include these words in the titles when youtubers are trying to make the next trending video. 
+In project 3, I used python to answer the question in future analysis mentioned in project1: "Whats the most frequent names in title, description, tags of trending videos?". As we can see in the wordcloud image, word like "official", "trailer", "new", "live", "star", "music" are the most popular names in title of tredning video. Therefore, make sure to include these words in the titles when youtubers are trying to make the next trending video. 
 
 1. 10 pts for the analysis in the python code: does it do something interesting, does it work?
 
