@@ -9,8 +9,8 @@ Report.pdf:\
  images/VideoCategories_fre.rds\
  images/Num_views.rds\
  images/like_dislike.rds\
- images/views2m.rds\
  images/wordcloud.png\
+ images/views2m.rds\
  images/timepasses.rds
 	Rscript -e "rmarkdown::render('Report.Rmd',output_format='pdf_document')"
 
